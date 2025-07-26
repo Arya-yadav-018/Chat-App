@@ -10,9 +10,10 @@ const useGetMessages = () => {
     const fetchMessages = async () => {
 
       try {
+        const API = process.env.REACT_APP_API_URL;
         axios.defaults.withCredentials = true;
         const res = await axios.get(
-          `http://localhost:4000/api/v1/message/${selectedUser?._id}`
+          `${API}/api/v1/message/${selectedUser?._id}`
         );
 
         console.log(res);

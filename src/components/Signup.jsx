@@ -21,7 +21,8 @@ const Signup = () => {
 
      try{
         console.log(user)
-        const res = await axios.post(`http://localhost:4000/api/v1/user/register` , user , {
+        const API = process.env.REACT_APP_API_URL;
+        const res = await axios.post(`${API}/api/v1/user/register` , user , {
            headers : {
               'Content-Type' : 'application/json'
            },

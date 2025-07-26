@@ -11,8 +11,9 @@ const useGetOtherUsers = () => {
   useEffect(() => {
         const fetchOtherUsers = async () => {
             try {
+                const API = process.env.REACT_APP_API_URL;
                  axios.defaults.withCredentials = true;
-                const res = await axios.get(`http://localhost:4000/api/v1/user/getother`);
+                const res = await axios.get(`${API}/api/v1/user/getother`);
                 // store
                 console.log(res);
     dispatch(setOtherUsers(res.data));            

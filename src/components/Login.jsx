@@ -19,7 +19,8 @@ export const Login = () => {
       
       try{
         console.log(user)
-        const res = await axios.post(`http://localhost:4000/api/v1/user/login` , user , {
+        const API = process.env.REACT_APP_API_URL;
+        const res = await axios.post(`${API}/api/v1/user/login` , user , {
            headers : {
               'Content-Type' : 'application/json'
            },

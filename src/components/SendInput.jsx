@@ -18,7 +18,8 @@ const SendInput = () => {
         e.preventDefault();
 
         try{
-           const res = await axios.post(`http://localhost:4000/api/v1/message/${selectedUser?._id}` , {message} , {
+            const API = process.env.REACT_APP_API_URL;
+           const res = await axios.post(`${API}/api/v1/message/${selectedUser?._id}` , {message} , {
                 headers :{
                     'Content-Type' : 'application/json'
                 },

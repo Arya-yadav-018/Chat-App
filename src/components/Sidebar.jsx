@@ -15,7 +15,8 @@ export const Sidebar = () => {
   const navigate = useNavigate();  
   const logoutHandler = async () => {
         try{
-            const res = await axios.get(`http://localhost:4000/api/v1/user/logout`);
+            const API = process.env.REACT_APP_API_URL;
+            const res = await axios.get(`${API}/api/v1/user/logout`);
            navigate("/login");
           toast.success(res.data.message);  
           dispatch(setAuthUser(null)); 
